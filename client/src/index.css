@@ -3,16 +3,10 @@
 html,
 body,
 #root,
-.app,
-.content {
+.app {
   height: 100%;
   width: 100%;
-  font-family: 'Shantell Sans', sans-serif;
-}
-
-.app {
-  display: flex;
-  position: relative;
+  font-family: "Shantell Sans", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -21,15 +15,15 @@ body,
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #e0e0e0;
+  background: #7a7f9d;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #21295c;
 }
 
-/* Hanlde on Hover */
+/* Handle on Hover */
 ::-webkit-scrollbar-track:hover {
-  background: #555;
+  background: #21295c;
 }

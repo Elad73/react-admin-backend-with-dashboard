@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-//import mongoose from 'mongoose';
-import mysql from 'mysql2';
+import db from './config/mysql.js' 
 import cors from 'cors';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
@@ -29,15 +28,5 @@ app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
 app.use("/sales", salesRoutes);
 
-/* MYSQL SETUP */
-console.log("Setting up db");
 const PORT = process.env.PORT || 9000;
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD
-});
-
-console.log("db connection success");
-
 app.listen(PORT, () => console.log(`Server Port: ${PORT}`));

@@ -1,6 +1,7 @@
 function App() {
   return (
     <div className="app">
+      Backend Client application
     </div>
   );
 }

@@ -1,24 +1,20 @@
 import db from '../services/db.js';
 
 let results = [];
-export const getUser = async (req, res) => {
-    try{
-        console.log('########## Inside getUser ##########');
-        const { id } = req.params;
+export const getUsers = async (req, res) => {
+    try {
+        console.log('########## getUsers #################');
         let conn = await db.connect();
-        const [rows,] = await conn.query(`SELECT * FROM users WHERE uid = ${id}`);
+        const [rows,] = await conn.query("SELECT * FROM users;");
         conn.end();
-
+    
+        console.log('results: ' + JSON.stringify(results));
         results = rows;
-
         console.log("Results: " + JSON.stringify(results));
-        return res.status(200).json(results[0]);
+        return res.status(200).json(results);
     }
     catch (error) {
         if(conn) conn.end();
         res.status(404).json(error);        
     }
 };
-
-
-

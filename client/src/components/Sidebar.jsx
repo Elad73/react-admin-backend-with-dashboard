@@ -28,6 +28,7 @@ import {
   TrendingUpOutlined,
   PieChartOutlined,
 } from "@mui/icons-material";
+import Diversity1OutlinedIcon from '@mui/icons-material/Diversity1Outlined';
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
@@ -39,15 +40,15 @@ const navItems = [
     icon: <HomeOutlined />,
   },
   {
-    text: "Client Facing",
+    text: "Family",
     icon: null,
   },
   {
-    text: "Products",
-    icon: <ShoppingCartOutlined />,
+    text: "Users",
+    icon: <Diversity1OutlinedIcon />,
   },
   {
-    text: "Customers",
+    text: "Activities",
     icon: <Groups2Outlined />,
   },
   {
@@ -59,7 +60,7 @@ const navItems = [
     icon: <PublicOutlined />,
   },
   {
-    text: "Sales",
+    text: "Calendar",
     icon: null,
   },
   {
@@ -67,7 +68,7 @@ const navItems = [
     icon: <PointOfSaleOutlined />,
   },
   {
-    text: "Daily",
+    text: "Weekly",
     icon: <TodayOutlined />,
   },
   {
@@ -85,10 +86,6 @@ const navItems = [
   {
     text: "Admin",
     icon: <AdminPanelSettingsOutlined />,
-  },
-  {
-    text: "Performance",
-    icon: <TrendingUpOutlined />,
   },
 ];
 
@@ -132,7 +129,7 @@ const Sidebar = ({
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
                   <Typography variant="h4" fontWeight="bold">
-                    MondraNet
+                    Fa Me Ly
                   </Typography>
                 </Box>
                 {!isNonMobile && (
@@ -211,13 +208,13 @@ const Sidebar = ({
                   fontSize="0.9rem"
                   sx={{ color: theme.palette.secondary[100] }}
                 >
-                  {user.name}
+                  {user.first_name}
                 </Typography>
                 <Typography
                   fontSize="0.8rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
-                  {user.occupation}
+                  {user.last_name}
                 </Typography>
               </Box>
               <SettingsOutlined

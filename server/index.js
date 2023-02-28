@@ -1,14 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import db from './config/mysql.js' 
 import cors from 'cors';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import clientRoutes from './routes/client.js';
+import userRoutes from './routes/user.js';
 import generalRoutes from './routes/general.js';
 import managementRoutes from './routes/management.js';
-import salesRoutes from './routes/sales.js';
 
 /* CONFIGURATION */
 dotenv.config();
@@ -23,10 +21,9 @@ app.use(cors());
 
 /* ROUTES */
 console.log("Setting up routes");
-app.use("/client", clientRoutes);
+app.use("/user", userRoutes);
 app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
-app.use("/sales", salesRoutes);
 
 const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => console.log(`Server Port: ${PORT}`));

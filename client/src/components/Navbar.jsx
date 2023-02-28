@@ -28,6 +28,11 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
+  const [anchorEl, setAnchorEl] = useState(null);
+  const isOpen = Boolean(anchorEl);
+  const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
+
   return (
     <AppBar
       sx={{
@@ -54,7 +59,6 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
             </IconButton>
           </FlexBetween>
         </FlexBetween>
-              
 
         {/* RIGHT SIDE */}
         <FlexBetween gap="1.5rem">
@@ -69,7 +73,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
             <SettingsOutlined sx={{ fontSize: "25px" }} />
           </IconButton>
 
-          {/* <FlexBetween>
+          <FlexBetween>
             <Button
               onClick={handleClick}
               sx={{
@@ -95,13 +99,13 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                   fontSize="0.85rem"
                   sx={{ color: theme.palette.secondary[100] }}
                 >
-                  {user.name}
+                  {user.first_name}
                 </Typography>
                 <Typography
                   fontSize="0.75rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
-                  {user.occupation}
+                  {user.last_name}
                 </Typography>
               </Box>
               <ArrowDropDownOutlined
@@ -116,9 +120,8 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
             >
               <MenuItem onClick={handleClose}>Log Out</MenuItem>
             </Menu>
-          </FlexBetween> */}
+          </FlexBetween>
         </FlexBetween>
-    
       </Toolbar>
     </AppBar>
   );
